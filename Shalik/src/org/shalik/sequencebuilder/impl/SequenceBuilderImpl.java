@@ -1,10 +1,11 @@
-package org.shalik.impl;
+package org.shalik.sequencebuilder.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.shalik.ObjectBuilder;
-import org.shalik.SequenceBuilder;
+import org.shalik.sequencebuilder.NextBuilder;
+import org.shalik.sequencebuilder.SequenceBuilder;
 
 public class SequenceBuilderImpl<T> implements SequenceBuilder<T> {
 
@@ -38,13 +39,13 @@ public class SequenceBuilderImpl<T> implements SequenceBuilder<T> {
 	}
 
 	@Override
-	public SequenceBuilder<T> beginWith(ObjectBuilder<T> beginingBuilder) {
+	public SequenceBuilderImpl<T> beginWith(ObjectBuilder<T> beginingBuilder) {
 		this.beginingBuilder = beginingBuilder;
 		return this;
 	}
 
 	@Override
-	public SequenceBuilder<T> progressAs(NextBuilder<T> nextBuilder) {
+	public SequenceBuilderImpl<T> proceedAs(NextBuilder<T> nextBuilder) {
 		this.nextBuilder = nextBuilder;
 		return this;
 	}

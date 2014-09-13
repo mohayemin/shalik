@@ -1,10 +1,11 @@
-package org.shalik.impl;
+package org.shalik.sequencebuilder;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.shalik.sequencebuilder.impl.SequenceBuilderImpl;
 import org.shalik.test.testdoubles.Person;
 
 @Category(SequenceBuilderImpl.class)
@@ -12,16 +13,16 @@ public class SequenceBuilder_ProgressAsTest {
 	SequenceBuilderImpl<Person> sb = new SequenceBuilderImpl<>();
 
 	@Before
-	public void beforeEach(){
-		sb = new SequenceBuilderImpl<>();
-		sb.beginWith(() -> new Person("person0", 30));
+	public void beforeEach() {
+		sb = new SequenceBuilderImpl<Person>()
+			.beginWith(() -> new Person("person0", 30));
 	}
-	
+
 	@Test
 	public void progressAs_ruleBasedOnBeginingAndPreviousAndIndex() {
-		sb.beginWith(() -> new Person("person0", 1));
-		sb.progressAs((first, prev, index) -> new Person("person", first
-			.getAge() + index * prev.getAge()));
+		sb.beginWith(() -> new Person("person0", 1))
+			.proceedAs((first, prev, index) 
+				-> new Person("person", first.getAge() + index * prev.getAge()));
 		// 0->1, 1->2, 2->5, 3->16
 		Person person3 = sb.build(10).get(3);
 		assertEquals(
@@ -32,7 +33,7 @@ public class SequenceBuilder_ProgressAsTest {
 
 	@Test
 	public void progressAs_ruleBasedOnPrevious() {
-		sb.progressAs((first, prev, index) -> new Person("person", prev
+		sb.proceedAs((first, prev, index) -> new Person("person", prev
 			.getAge() + 1));
 
 		Person person3 = sb.build(10).get(3);
@@ -43,7 +44,7 @@ public class SequenceBuilder_ProgressAsTest {
 
 	@Test
 	public void progressAs_ruleBasedOnBegining() {
-		sb.progressAs((first, prev, index) -> new Person("person", first
+		sb.proceedAs((first, prev, index) -> new Person("person", first
 			.getAge() * 2));
 
 		Person person3 = sb.build(10).get(3);
@@ -54,7 +55,7 @@ public class SequenceBuilder_ProgressAsTest {
 
 	@Test
 	public void progressAs_ruleBasedOnIndex() {
-		sb.progressAs((first, prev, index) -> new Person("person" + index, 30));
+		sb.proceedAs((first, prev, index) -> new Person("person" + index, 30));
 
 		Person person3 = sb.build(10).get(3);
 		assertEquals(
