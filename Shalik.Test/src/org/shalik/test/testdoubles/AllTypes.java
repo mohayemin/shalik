@@ -1,7 +1,5 @@
 package org.shalik.test.testdoubles;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class AllTypes {
 	private short shortInteger;
