@@ -1,5 +1,6 @@
 package org.shalik.test.testdoubles;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class AllTypes {
@@ -8,7 +9,6 @@ public class AllTypes {
 	private long longInteger;
 	private float singleFloat;
 	private double doubleFloat;
-	private Date date;
 	private char character;
 	private boolean bool;
 	private String string;
@@ -51,14 +51,6 @@ public class AllTypes {
 
 	public void setDoubleFloat(double doubleFloat) {
 		this.doubleFloat = doubleFloat;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public char getCharacter() {

@@ -2,7 +2,6 @@ package org.shalik.impl.listbuilder;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -49,11 +48,6 @@ public class ListBuilder_DefaultValue {
 	@Test
 	public void build_firstDoubleIs0() {
 		assertEquals(0., objects.get(0).getDoubleFloat(), 1e-10);
-	}
-	
-	@Test
-	public void build_firstDateIs0() {
-		assertEquals(new Date(0L), objects.get(0).getDate());
 	}
 	
 	@Test
