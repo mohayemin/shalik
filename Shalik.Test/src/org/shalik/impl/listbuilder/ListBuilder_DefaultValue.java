@@ -1,4 +1,4 @@
-package org.shalik.impl;
+package org.shalik.impl.listbuilder;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,9 +7,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.shalik.impl.ListBuilderImpl;
 import org.shalik.test.testdoubles.AllTypes;
 
-public class ListBuilder_BuildTest {
+public class ListBuilder_DefaultValue {
 
 	private ListBuilderImpl<AllTypes> builder;
 	private List<AllTypes> objects;
