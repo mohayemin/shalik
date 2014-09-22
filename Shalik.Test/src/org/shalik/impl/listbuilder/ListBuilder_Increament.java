@@ -43,16 +43,6 @@ public class ListBuilder_Increament {
 	}
 		
 	@Test
-	public void build_get5getCharacter_UpperCaseE() {
-		assertEquals('E', object5.getCharacter());
-	}
-	
-	@Test
-	public void build_get5getBool_False() {
-		assertEquals(false, object5.isBool());
-	}
-	
-	@Test
 	public void build_get5getString_string5() {
 		assertEquals("string5", object5.getString());
 	}
