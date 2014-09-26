@@ -12,7 +12,7 @@ public class ClassInfo<T> {
 		this.type = type;
 	}
 	
-	public Iterable<MethodInfo> getSetters() {		
+	public List<MethodInfo> getSetters() {		
 		if (setters == null) {
 			generateSetters();
 		}

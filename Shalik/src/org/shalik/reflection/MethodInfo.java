@@ -3,7 +3,7 @@ package org.shalik.reflection;
 import java.lang.reflect.Method;
 
 public class MethodInfo {
-	private Method method;
+	public final Method method;
 	private Boolean isSetter;
 	private Integer parameterCount;
 
@@ -49,10 +49,6 @@ public class MethodInfo {
 			.getParameterTypes()[0] : Void.class;
 
 		return paramType;
-	}
-
-	public Method getMethod() {
-		return method;
 	}
 
 	@Override
